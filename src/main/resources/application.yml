@@ -1,5 +1,5 @@
 server:
-  port: ${server_port:8080}
+  port: ${SERVER_PORT:8080}
 spring:
   profiles:
     active: test
@@ -12,15 +12,16 @@ jwt:
   secret: ${jwt_secret:thisisathirtycharacterlongstring}
   expiration: 3600000
 
+
 google:
-  CLIENT_ID: 120787335948-g4r6bof29ub3vaaaiu7pc01jd5dalooq.apps.googleusercontent.com
+  CLIENT_ID: ${GOOGLE_CLIENT_ID}
 
 facebook:
-  TOKEN_VALIDATION_URL: https://graph.facebook.com/me?access_token=
+  TOKEN_VALIDATION_URL: ${FACEBOOK_TOKEN_VALIDATION_URL}
 
 stripe:
-  key: ${stripe_key:sk_test_51I3zWOI8py6Rj5ufAOC0uwcqJy64pIGVg5OK9O80NqICeXosLJYYlDKESNeD0NRTudoL6MtF6u7n6e9tjseDGnZW00JkeuTLoT}
+  secret-key: ${STRIPE_SECRET_KEY}
 
 razor:
-  publicKey: rzp_test_QHK5P7ne66SdWo
-  privateKey: XeaLw0YDUXDck0tfb4WzqEaX
+  publicKey: ${RAZOR_PUBLIC_KEY}
+  privateKey: ${RAZOR_PRIVATE_KEY}
