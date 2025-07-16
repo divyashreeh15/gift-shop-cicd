@@ -11,8 +11,6 @@ spring:
 jwt:
   secret: ${JWT_SECRET}
   expiration: 3600000
-
-
 google:
   CLIENT_ID: ${GOOGLE_CLIENT_ID}
 
@@ -20,7 +18,7 @@ facebook:
   TOKEN_VALIDATION_URL: ${FACEBOOK_TOKEN_VALIDATION_URL}
 
 stripe:
-  secret-key: ${STRIPE_SECRET_KEY}
+  secret-key: ${STRIPE_KEY}
 
 razor:
   publicKey: ${RAZOR_PUBLIC_KEY}
