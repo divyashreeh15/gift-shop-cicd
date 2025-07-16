@@ -1,0 +1,25 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  profiles:
+    active: test
+  application:
+    name: gift-shop
+    email:
+    enabled: false
+
+jwt:
+  secret: ${JWT_SECRET}
+
+google:
+  CLIENT_ID: ${GOOGLE_CLIENT_ID}
+
+facebook:
+  TOKEN_VALIDATION_URL: ${FACEBOOK_TOKEN_VALIDATION_URL}
+
+stripe:
+  secret-key: ${STRIPE_SECRET_KEY}
+
+razor:
+  publicKey: ${RAZOR_PUBLIC_KEY}
+  privateKey: ${RAZOR_PRIVATE_KEY}
