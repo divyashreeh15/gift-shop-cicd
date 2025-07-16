@@ -9,7 +9,7 @@ spring:
     enabled: false
 
 jwt:
-  secret: ${jwt_secret:thisisathirtycharacterlongstring}
+  secret: ${JWT_SECRET}
   expiration: 3600000
 
 
