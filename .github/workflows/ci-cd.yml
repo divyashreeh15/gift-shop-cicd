@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-test-deploy:
+  build-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +28,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    - name: Build with Maven (skip tests here, since Docker builds with skipTests)
+    - name: Build with Maven (skip tests here)
       run: mvn clean package -DskipTests
 
     - name: Run Tests
@@ -40,24 +40,4 @@ jobs:
         RAZOR_PRIVATE_KEY: ${{ secrets.RAZOR_PRIVATE_KEY }}
         GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
         FACEBOOK_TOKEN_VALIDATION_URL: ${{ secrets.FACEBOOK_TOKEN_VALIDATION_URL }}
-        SERVER_PORT: 8080  # Optional, since it's default
-
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: Build Docker Image
-      run: |
-        docker build \
-          --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
-          --build-arg STRIPE_KEY=${{ secrets.STRIPE_KEY }} \
-          --build-arg RAZOR_PUBLIC_KEY=${{ secrets.RAZOR_PUBLIC_KEY }} \
-          --build-arg RAZOR_PRIVATE_KEY=${{ secrets.RAZOR_PRIVATE_KEY }} \
-          --build-arg GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} \
-          --build-arg FACEBOOK_TOKEN_VALIDATION_URL=${{ secrets.FACEBOOK_TOKEN_VALIDATION_URL }} \
-          -t ${{ secrets.DOCKER_USERNAME }}/gift-shop-api:latest .
-
-    - name: Push Docker Image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/gift-shop-api:latest
+        SERVER_PORT: 8080
