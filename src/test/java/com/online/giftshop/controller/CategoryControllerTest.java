@@ -29,7 +29,7 @@ public class CategoryControllerTest {
 	// Fetch category by correct id
 	@Test
 	void testFetchByCategoryIdSuccess() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/categories/100001").contentType(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.get("/categories/88881").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON));
 	}
 
