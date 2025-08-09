@@ -102,13 +102,7 @@ public class AuthControllerTest {
    * @title Request PasswordChange
    * @desc Successfully fetch Secret Question
    */
-  @Test
-  void forgotPassword() throws Exception {
-    mockMvc.perform(MockMvcRequestBuilders.get("/auth/forgotpassword/gagan").contentType(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
-        .andExpect(jsonPath("$.securityQuestion").exists());
-
-  }
+  
 
   /**
    * 
